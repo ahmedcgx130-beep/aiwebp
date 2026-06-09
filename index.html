@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أنجز لي | ذكاء اصطناعي لتنظيم حياتك</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .indigo-gradient {
+            background: linear-gradient(135deg, #4f46e5 0%, #3730a3 100%);
+        }
+        .hero-shape {
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        .floating {
+            animation: float 4s ease-in-out infinite;
+        }
+        .custom-shadow {
+            box-shadow: 0 20px 50px rgba(79, 70, 229, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-effect">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-10 h-10 indigo-gradient rounded-xl flex items-center justify-center text-white text-2xl">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <span class="text-2xl font-extrabold text-indigo-900">أنجز <span class="text-indigo-600">لي</span></span>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-8 text-slate-600 font-medium">
+                <a href="#features" class="hover:text-indigo-600 transition">المميزات</a>
+                <a href="#testimonials" class="hover:text-indigo-600 transition">آراء المستخدمين</a>
+                <a href="#pricing" class="hover:text-indigo-600 transition">الأسعار</a>
+                <button onclick="showDownloadModal()" class="bg-indigo-600 text-white px-6 py-2 rounded-full font-bold hover:bg-indigo-700 transition transform hover:scale-105">تحميل التطبيق</button>
+            </div>
+
+            <button class="md:hidden text-2xl text-indigo-900" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-white flex flex-col items-center justify-center gap-8 text-2xl font-bold hidden">
+        <button onclick="toggleMenu()" class="absolute top-6 left-6 text-indigo-900"><i class="fas fa-times"></i></button>
+        <a href="#features" onclick="toggleMenu()">المميزات</a>
+        <a href="#testimonials" onclick="toggleMenu()">الآراء</a>
+        <a href="#pricing" onclick="toggleMenu()">الأسعار</a>
+        <button onclick="showDownloadModal(); toggleMenu()" class="bg-indigo-600 text-white px-8 py-3 rounded-full">تحميل الآن</button>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 overflow-hidden">
+        <div class="container mx-auto px-6 flex flex-col lg:flex-row items-center">
+            <div class="lg:w-1/2 text-right z-10">
+                <h1 class="text-5xl lg:text-7xl font-extrabold text-indigo-950 leading-tight mb-6">
+                    نظم حياتك بذكاء <br>
+                    <span class="text-indigo-600">بلمسة واحدة</span>
+                </h1>
+                <p class="text-xl text-slate-600 mb-10 max-w-lg leading-relaxed">
+                    "أنجز لي" هو المساعد الشخصي الذي يستخدم الذكاء الاصطناعي لترتيب مهامك، وتحديد أولوياتك، وتحسين إنتاجيتك اليومية بشكل لم يسبق له مثيل.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <button onclick="showDownloadModal()" class="px-8 py-4 bg-indigo-600 text-white rounded-2xl font-bold text-lg hover:bg-indigo-700 transition flex items-center gap-3 custom-shadow">
+                        <i class="fab fa-apple text-2xl"></i>
+                        آب ستور
+                    </button>
+                    <button onclick="showDownloadModal()" class="px-8 py-4 bg-white border-2 border-indigo-100 text-indigo-900 rounded-2xl font-bold text-lg hover:bg-indigo-50 transition flex items-center gap-3">
+                        <i class="fab fa-google-play text-2xl text-indigo-600"></i>
+                        جوجل بلاي
+                    </button>
+                </div>
+            </div>
+            <div class="lg:w-1/2 mt-16 lg:mt-0 relative flex justify-center">
+                <div class="relative z-10 w-64 md:w-80 floating">
+                    <img src="https://img.freepik.com/free-vector/modern-smartphone-mockup-set-white_1017-30230.jpg?t=st=1723500000&exp=1723503600&hmac=mockup" alt="App Mockup" class="rounded-[3rem] shadow-2xl border-8 border-white">
+                </div>
+                <!-- Decorative Elements -->
+                <div class="absolute -top-10 -right-10 w-64 h-64 bg-indigo-100 rounded-full blur-3xl opacity-60"></div>
+                <div class="absolute -bottom-10 -left-10 w-64 h-64 bg-purple-100 rounded-full blur-3xl opacity-60"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-3xl lg:text-5xl font-bold text-indigo-950 mb-4">لماذا "أنجز لي"؟</h2>
+                <p class="text-slate-500 text-lg">تقنيات متطورة تجعل من يومك تجربة إنجاز فريدة</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- Feature 1 -->
+                <div class="p-10 bg-slate-50 rounded-3xl border border-slate-100 hover:border-indigo-300 transition group hover:-translate-y-2 duration-300">
+                    <div class="w-16 h-16 bg-indigo-600 text-white rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-lg shadow-indigo-200">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-indigo-950 group-hover:text-indigo-600 transition">ترتيب ذكي</h3>
+                    <p class="text-slate-600 leading-relaxed">يقوم الذكاء الاصطناعي بتحليل مهامك ووضعها في الجدول الزمني الأنسب لك حسب طاقتك واهتماماتك.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="p-10 bg-slate-50 rounded-3xl border border-slate-100 hover:border-indigo-300 transition group hover:-translate-y-2 duration-300">
+                    <div class="w-16 h-16 bg-indigo-600 text-white rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-lg shadow-indigo-200">
+                        <i class="fas fa-microphone-lines"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-indigo-950 group-hover:text-indigo-600 transition">إدخال صوتي</h3>
+                    <p class="text-slate-600 leading-relaxed">تحدث مع التطبيق وكأنك تتحدث مع سكرتيرك الخاص، وسيقوم فوراً بتحويل كلماتك إلى مهام مجدولة.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="p-10 bg-slate-50 rounded-3xl border border-slate-100 hover:border-indigo-300 transition group hover:-translate-y-2 duration-300">
+                    <div class="w-16 h-16 bg-indigo-600 text-white rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-lg shadow-indigo-200">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-indigo-950 group-hover:text-indigo-600 transition">تقارير الإنجاز</h3>
+                    <p class="text-slate-600 leading-relaxed">احصل على تحليلات دقيقة لمستوى إنتاجيتك واقتراحات لتحسين روتينك اليومي لتحقيق أهدافك.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-24 bg-slate-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl lg:text-5xl font-bold text-center text-indigo-950 mb-16">قالوا عنّا</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 flex gap-6 items-start">
+                    <img src="https://i.pravatar.cc/100?u=1" class="w-20 h-20 rounded-full border-4 border-indigo-50" alt="User">
+                    <div>
+                        <div class="flex text-amber-400 mb-2">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-slate-600 italic mb-4 leading-relaxed">"أصبح روتيني الصباحي أكثر سلاسة بفضل اقتراحات الذكاء الاصطناعي. لا أستطيع تخيل يومي بدونه الآن!"</p>
+                        <h4 class="font-bold text-indigo-900 text-lg">أحمد العمري</h4>
+                        <span class="text-slate-400 text-sm">رائد أعمال</span>
+                    </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 flex gap-6 items-start">
+                    <img src="https://i.pravatar.cc/100?u=2" class="w-20 h-20 rounded-full border-4 border-indigo-50" alt="User">
+                    <div>
+                        <div class="flex text-amber-400 mb-2">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-slate-600 italic mb-4 leading-relaxed">"التطبيق فعلاً ينجز لي المهام الصعبة في التفكير والتنظيم. ميزة الأوامر الصوتية باللغة العربية دقيقة جداً."</p>
+                        <h4 class="font-bold text-indigo-900 text-lg">سارة الحربي</h4>
+                        <span class="text-slate-400 text-sm">مصممة واجهات</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-indigo-950 mb-4">اختر خطتك للنجاح</h2>
+                <p class="text-slate-500">استثمر في إنتاجيتك الآن</p>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-8">
+                <!-- Plan 1 -->
+                <div class="w-full max-w-sm p-10 rounded-3xl bg-slate-50 border border-slate-100 transition hover:shadow-xl">
+                    <h3 class="text-2xl font-bold mb-2">الخطة الأساسية</h3>
+                    <p class="text-slate-500 mb-6">للمبتدئين في عالم التنظيم</p>
+                    <div class="text-5xl font-extrabold text-indigo-900 mb-8">مجاناً</div>
+                    <ul class="space-y-4 mb-10">
+                        <li class="flex items-center gap-3"><i class="fas fa-check-circle text-green-500"></i> حتى 10 مهام يومياً</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check-circle text-green-500"></i> مزامنة جهازين</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check-circle text-green-500"></i> دعم اللغة العربية</li>
+                        <li class="flex items-center gap-3 text-slate-400"><i class="fas fa-times-circle"></i> ذكاء اصطناعي متقدم</li>
+                    </ul>
+                    <button onclick="showDownloadModal()" class="w-full py-4 rounded-2xl border-2 border-indigo-600 text-indigo-600 font-bold hover:bg-indigo-600 hover:text-white transition">ابدأ الآن</button>
+                </div>
+
+                <!-- Plan 2 -->
+                <div class="w-full max-w-sm p-10 rounded-3xl bg-indigo-600 text-white shadow-2xl shadow-indigo-200 transform scale-105 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 bg-indigo-500 py-1 px-10 -rotate-45 -translate-x-8 translate-y-4 font-bold text-sm uppercase">الأكثر طلباً</div>
+                    <h3 class="text-2xl font-bold mb-2 text-indigo-100">باقة الإنجاز القصوى</h3>
+                    <p class="text-indigo-200 mb-6">للمحترفين والباحثين عن التميز</p>
+                    <div class="text-5xl font-extrabold mb-8">$9.99<span class="text-lg font-normal">/شهرياً</span></div>
+                    <ul class="space-y-4 mb-10">
+                        <li class="flex items-center gap-3"><i class="fas fa-check-circle text-indigo-300"></i> مهام غير محدودة</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check-circle text-indigo-300"></i> ذكاء اصطناعي كامل</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check-circle text-indigo-300"></i> تقارير أداء أسبوعية</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check-circle text-indigo-300"></i> أولوية الدعم الفني</li>
+                    </ul>
+                    <button onclick="showDownloadModal()" class="w-full py-4 rounded-2xl bg-white text-indigo-600 font-bold hover:bg-slate-100 transition shadow-lg">اشترك الآن</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-indigo-950 text-white py-16">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div class="col-span-1 md:col-span-2">
+                <div class="flex items-center gap-2 mb-6">
+                    <div class="w-10 h-10 bg-white rounded-xl flex items-center justify-center text-indigo-900 text-2xl">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <span class="text-2xl font-extrabold">أنجز لي</span>
+                </div>
+                <p class="text-indigo-200 max-w-md leading-relaxed">تطبيقك الأول عالمياً لتنظيم الوقت باستخدام الذكاء الاصطناعي. انضم لأكثر من مليون مستخدم سعيد.</p>
+                <div class="flex gap-4 mt-8">
+                    <a href="#" class="w-10 h-10 rounded-full bg-indigo-900 flex items-center justify-center hover:bg-indigo-600 transition"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-indigo-900 flex items-center justify-center hover:bg-indigo-600 transition"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-indigo-900 flex items-center justify-center hover:bg-indigo-600 transition"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6 text-xl">روابط سريعة</h4>
+                <ul class="space-y-4 text-indigo-200">
+                    <li><a href="#" class="hover:text-white transition">عن التطبيق</a></li>
+                    <li><a href="#" class="hover:text-white transition">سياسة الخصوصية</a></li>
+                    <li><a href="#" class="hover:text-white transition">شروط الاستخدام</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6 text-xl">تواصل معنا</h4>
+                <ul class="space-y-4 text-indigo-200">
+                    <li class="flex items-center gap-3"><i class="fas fa-envelope"></i> support@anjizli.ai</li>
+                    <li class="flex items-center gap-3"><i class="fas fa-phone"></i> +966 500 000 000</li>
+                </ul>
+            </div>
+        </div>
+        <div class="container mx-auto px-6 border-t border-indigo-900 mt-12 pt-8 text-center text-indigo-400">
+            <p>&copy; 2023 أنجز لي. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <!-- Custom Modal (Success Download) -->
+    <div id="modal-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] flex items-center justify-center hidden opacity-0 transition-opacity duration-300">
+        <div class="bg-white rounded-[2.5rem] p-10 max-w-md w-11/12 text-center transform scale-90 transition-transform duration-300">
+            <div class="w-20 h-20 bg-green-100 text-green-500 rounded-full flex items-center justify-center text-4xl mx-auto mb-6">
+                <i class="fas fa-check"></i>
+            </div>
+            <h3 class="text-3xl font-extrabold text-indigo-950 mb-4">شكراً لك!</h3>
+            <p class="text-slate-600 text-lg mb-8 leading-relaxed">
+                سيتم توجيهك الآن لتحميل التطبيق وبدء رحلة الإنجاز الحقيقية.
+            </p>
+            <button onclick="hideDownloadModal()" class="w-full py-4 bg-indigo-600 text-white rounded-2xl font-bold text-xl hover:bg-indigo-700 transition">فهمت</button>
+        </div>
+    </div>
+
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const modalOverlay = document.getElementById('modal-overlay');
+        const modalContent = modalOverlay.querySelector('div');
+
+        function toggleMenu() {
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        mobileMenuBtn.addEventListener('click', toggleMenu);
+
+        function showDownloadModal() {
+            modalOverlay.classList.remove('hidden');
+            setTimeout(() => {
+                modalOverlay.classList.remove('opacity-0');
+                modalOverlay.classList.add('opacity-100');
+                modalContent.classList.remove('scale-90');
+                modalContent.classList.add('scale-100');
+            }, 10);
+        }
+
+        function hideDownloadModal() {
+            modalOverlay.classList.remove('opacity-100');
+            modalOverlay.classList.add('opacity-0');
+            modalContent.classList.remove('scale-100');
+            modalContent.classList.add('scale-90');
+            setTimeout(() => {
+                modalOverlay.classList.add('hidden');
+            }, 300);
+        }
+
+        // Close modal on click outside
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) hideDownloadModal();
+        });
+
+        // Smooth reveal on scroll (Simple logic)
+        window.addEventListener('scroll', () => {
+            const reveals = document.querySelectorAll('section');
+            reveals.forEach(reveal => {
+                const windowHeight = window.innerHeight;
+                const revealTop = reveal.getBoundingClientRect().top;
+                const revealPoint = 150;
+                if (revealTop < windowHeight - revealPoint) {
+                    reveal.classList.add('opacity-100');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
